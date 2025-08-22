@@ -1,0 +1,11 @@
+### requirements.txt
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+pydantic-settings
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+pytest
+pytest-asyncio
