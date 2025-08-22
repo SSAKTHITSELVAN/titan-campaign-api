@@ -1,7 +1,3 @@
-
-
-
-
 ### API Documentation & Usage Examples
 
 ## 🚀 Getting Started
