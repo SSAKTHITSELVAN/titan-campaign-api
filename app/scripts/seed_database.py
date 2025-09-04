@@ -25,7 +25,7 @@ def seed_database():
             created_companies = existing_companies
         else:
             # Create test companies using the CompanyService
-            from modules.companies.services import CompanyService
+            from app.modules.companies.compaines_services import CompanyService
             
             company_service = CompanyService(db)
             created_companies = []
@@ -70,7 +70,7 @@ def seed_database():
             for company_data in companies_data:
                 try:
                     # Use CompanyCreate schema for validation
-                    from modules.companies.schemas import CompanyCreate
+                    from app.modules.companies.compaines_schemas import CompanyCreate
                     company_create = CompanyCreate(**company_data)
                     
                     result = company_service.create_company(company_create)

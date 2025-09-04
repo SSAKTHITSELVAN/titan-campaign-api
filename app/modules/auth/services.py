@@ -1,5 +1,3 @@
-
-### modules/auth/services.py
 from datetime import timedelta
 from sqlalchemy.orm import Session
 from core.config import settings
@@ -40,7 +38,7 @@ class AuthService:
         
         return LoginResponse(
             access_token=access_token,
-            employee_id=employee.id,
+            employee_id=str(employee.id),
             role=employee.role,
             name=employee.name
         )

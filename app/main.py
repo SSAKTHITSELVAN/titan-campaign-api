@@ -8,10 +8,10 @@ from core.exceptions import AuthError, ValidationError, EmailSendError
 from core.logger import logger
 from database.connection import create_tables
 from modules.auth.controllers import auth_router
-from modules.companies.controllers import companies_router
-from modules.employees.controllers import employees_router
-from modules.customers.controllers import customers_router
-from modules.campaigns.controllers import campaigns_router
+from modules.companies.compaines_controllers import companies_router
+from modules.employees.employees_controllers import employees_router
+from modules.customers.customers_controllers import customers_router
+from modules.campaigns.campaigns_controllers import campaigns_router
 from modules.tracking.controllers import tracking_router
 
 app = FastAPI(

@@ -1,5 +1,3 @@
-
-### modules/auth/schemas.py
 from pydantic import BaseModel, EmailStr
 
 class LoginRequest(BaseModel):
@@ -9,12 +7,12 @@ class LoginRequest(BaseModel):
 class LoginResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
-    employee_id: int
+    employee_id: str
     role: str
     name: str
 
 class EmployeeResponse(BaseModel):
-    id: int
+    id: str
     name: str
     email: str
     role: str

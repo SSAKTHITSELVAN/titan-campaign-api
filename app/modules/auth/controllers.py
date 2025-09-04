@@ -1,5 +1,3 @@
-
-### modules/auth/controllers.py
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database.connection import get_db
