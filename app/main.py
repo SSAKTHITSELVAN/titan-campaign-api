@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import uvicorn
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from core.config import settings
 from core.exceptions import AuthError, ValidationError, EmailSendError
 from core.logger import logger
@@ -13,6 +16,9 @@ from modules.employees.employees_controllers import employees_router
 from modules.customers.customers_controllers import customers_router
 from modules.campaigns.campaigns_controllers import campaigns_router
 from modules.tracking.controllers import tracking_router
+from modules.whatsapp_campaigns.whatsapp_campaigns_controllers import whatsapp_campaigns_router
+from modules.whatsapp_campaigns.whatsapp_templates_controllers import whatsapp_templates_router
+from modules.whatsapp_campaigns.webhooks.whatsapp_webhook import whatsapp_webhook_router
 
 app = FastAPI(
     title="Email Campaign Management System",
@@ -61,6 +67,9 @@ app.include_router(employees_router, prefix="/api/employees", tags=["Employees"]
 app.include_router(customers_router, prefix="/api/customers", tags=["Customers"])
 app.include_router(campaigns_router, prefix="/api/campaigns", tags=["Campaigns"])
 app.include_router(tracking_router, prefix="/api/tracking", tags=["Tracking"])
+app.include_router(whatsapp_campaigns_router, prefix="/api/whatsapp/campaigns", tags=["WhatsApp Campaigns"])
+app.include_router(whatsapp_templates_router, prefix="/api/whatsapp/templates", tags=["WhatsApp Templates"])
+app.include_router(whatsapp_webhook_router, prefix="/webhooks/whatsapp", tags=["WhatsApp Webhook"])
 
 @app.on_event("startup")
 async def startup_event():

@@ -17,3 +17,4 @@ class EmailSendError(HTTPException):
 class PermissionError(HTTPException):
     def __init__(self, detail: str = "Permission denied"):
         super().__init__(status_code=403, detail=detail)
+        
